@@ -1,6 +1,8 @@
 import 'package:arabic_font/arabic_font.dart';
 import 'package:bac/page/PdfView.dart';
 import 'package:bac/page/ThemeProvider.dart';
+import 'package:bac/page/annee4.dart';
+import 'package:bac/page/annee5.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
@@ -15,40 +17,136 @@ class bac extends StatefulWidget {
 class _bacState extends State<bac> with TickerProviderStateMixin {
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
-  List<bool> showPlus = List.generate(10, (_) => false); 
+  List<bool> showPlus = List.generate(16, (_) => false); 
 
-  // Define a list of colors complementing the background gradient
   final List<Color> cardColors = [
-    const Color(0xFF1E88E5), // Dark blue
-    const Color(0xFF43A047), // Green
-    const Color(0xFFE53935), // Red
-    const Color(0xFFEF6C00), // Orange
-    const Color(0xFFAB47BC), // Purple
-    const Color(0xFF00ACC1), // Teal
-    const Color(0xFFF06292), // Pink
-    const Color(0xFFFFA726), // Amber
-    const Color(0xFF7CB342), // Light green
-    const Color(0xFF5C6BC0), // Indigo
+    const Color(0xFF1E88E5),
+    const Color(0xFF43A047),
+    const Color(0xFFE53935),
+    const Color(0xFFEF6C00),
+    const Color(0xFFAB47BC),
+    const Color(0xFF00ACC1),
+    const Color(0xFFF06292),
+    const Color(0xFFFFA726),
+     const Color(0xFF1E88E5),
+    const Color(0xFF43A047),
+    const Color(0xFFE53935),
+    const Color(0xFFEF6C00),
+    const Color(0xFFAB47BC),
+    const Color(0xFF00ACC1),
+    const Color(0xFFF06292),
+    const Color(0xFFFFA726),
   ];
 
   final List<String> _titles = [
-    "علوم فيزيائية",
-    "علوم الحياة والأرض",
-    "علوم زراعية",
-    "العلوم الرياضية أ",
-    "العلوم الرياضية ب",
-    "آداب وعلوم إنسانية",
-    "علوم التدبير المحاسباتي",
-    "العلوم الاقتصادية",
-    "شعبة اللغة العربية",
-    "شعبة العلوم الشرعية",
+    "المسالك العلمية",
+    "مسلك علوم رياضية",
+    "مسلك علوم حياة والأرض",
+    "مسلك علوم فيزيائية"
+    "مسلك علوم التدبير المحاسباتي",
+    "المسالك العلمية بالفرنسية",
+    "مسلك علوم رياضية بالفرنسية",
+    "مسلك علوم التدبير المحاسباتي بالفرنسية",
+    "مسلك علوم ميكانيكية",
+    "مسلك علوم كهربائية",
+    "مسلك علوم اقتصادية بالفرنسية",
+    "مسلك اداب",
+    "مسلك علوم انسانية",
+    "مسلك علوم شرعية",
+    "مسلك لغة عربية",
+    "مسلك فنون تطبيقية",
+    "مسلك علوم زراعية",
+  ];
+
+  final List<List<Map<String, dynamic>>> navigationButtons = [
+    [
+      {'text': 'وطني 1', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 1', 'screen': const  annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 1', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 2', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 2', 'screen': const annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 2', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 3', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 3', 'screen': const annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 3', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 4', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 4', 'screen': const annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 4', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 5', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 5', 'screen': const annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 5', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 6', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 6', 'screen': const annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 6', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 7', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 7', 'screen': const annee4(), 'icon': Icons.location_city},
+      {'text': 'محلي 7', 'screen': const annee5(), 'icon': Icons.home},
+    ],
+    [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+    
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
+     [
+      {'text': 'وطني 8', 'screen': const PdfView(), 'icon': Icons.public},
+      {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
+      {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
+    ],
   ];
 
   @override
   void initState() {
     super.initState();
     _controllers = List.generate(
-      10, 
+      16, 
       (_) => AnimationController(
         duration: const Duration(milliseconds: 300),
         vsync: this,
@@ -76,14 +174,14 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'الثانية باكالوريا', 
+          'الثانية باكالوريا',
           style: ArabicTextStyle(
             arabicFont: ArabicFont.dinNextLTArabic,
             fontSize: 30,
             color: Colors.white,
           ),
         ),
-                centerTitle: true,
+        centerTitle: true,
         elevation: 0,
         backgroundColor: themeProvider.isDarkMode
             ? Colors.grey[800]
@@ -107,7 +205,7 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
         child: AnimationLimiter(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
-            itemCount: 10, 
+            itemCount: 8,
             itemBuilder: (context, index) {
               return AnimationConfiguration.staggeredList(
                 position: index,
@@ -116,9 +214,9 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
                   verticalOffset: 50.0,
                   child: FadeInAnimation(
                     child: _buildExpandableSection(
-                      title: _titles[index], 
+                      title: _titles[index],
                       index: index,
-                      color: cardColors[index], 
+                      color: cardColors[index],
                     ),
                   ),
                 ),
@@ -185,28 +283,16 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
               child: widget,
             ),
           ),
-          children: [
-            _buildNavigationButton(
-              text: 'وطني',
-              onTap: () => _navigateToScreen(context, const PdfView21()),
-              color: cardColors[index], 
-              icon: Icons.public,
-            ),
-            const SizedBox(height: 8),
-            _buildNavigationButton(
-              text: 'جهوي',
-              onTap: () => _navigateToScreen(context, const PdfView20()),
-              color: cardColors[index], 
-              icon: Icons.location_city,
-            ),
-            const SizedBox(height: 8),
-            _buildNavigationButton(
-              text: 'محلي',
-              onTap: () => _navigateToScreen(context, const PdfView22()),
-              color: cardColors[index], 
-              icon: Icons.home,
-            ),
-          ],
+          children: navigationButtons[index].map((button) {
+            return Column(
+              children: [ _buildNavigationButton(
+                text: button['text'],
+                onTap: () => _navigateToScreen(context, button['screen']),
+                color: cardColors[index],
+                icon: button['icon'],
+              ), const SizedBox(height: 8),]
+            );
+          }).toList(),
         ),
       ),
     );

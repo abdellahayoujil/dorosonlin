@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
-// Colors for the app
+// Colors for my app
 const Color colorb = Color.fromARGB(255, 250, 81, 118);
 const Color colorr = Color.fromARGB(255, 80, 255, 123);
 const Color colorg = Color.fromARGB(255, 80, 248, 226);
@@ -41,6 +41,7 @@ class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
@@ -112,7 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             right: 20,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              textDirection: TextDirection.rtl, // Add this line
+              textDirection: TextDirection.rtl, 
               children: List.generate(
                 _pages.length,
                 (index) => Container(
@@ -180,20 +181,20 @@ class _SliderPageState extends State<SliderPage> with SingleTickerProviderStateM
 
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1700), // Slower animation
+      duration: const Duration(milliseconds: 1700), 
     );
 
     _titleOffsetAnimation = Tween<Offset>(
-      begin: const Offset(1, 0), // Start from the right
-      end: Offset.zero,          // End at normal position
+      begin: const Offset(-1.0, 1),
+      end: Offset.zero,         
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
 
     _descriptionOffsetAnimation = Tween<Offset>(
-      begin: const Offset(1, 0), // Start from the right 
-      end: Offset.zero,          // End at normal position
+      begin: const Offset(-1.0, 1), 
+      end: Offset.zero,         
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
@@ -268,7 +269,7 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
-        const SizedBox(height: 30), // Add some space at the bottom
+        const SizedBox(height: 30),
       ],
     ),
   );

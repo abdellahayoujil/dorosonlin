@@ -46,7 +46,7 @@ class TestState extends State<Test> {
                   _buildNavigationContainer(
                     color: Colors.green,
                     text: 'Screen 2',
-                    onTap: () => _navigateToScreen(context, const Annee5()),
+                    onTap: () => _navigateToScreen(context, const annee5()),
                   ),
                   _buildNavigationContainer(
                     color: Colors.orange,
@@ -89,5 +89,3 @@ class TestState extends State<Test> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
 }
-
-// Example screens (Screen1, Screen2, Screen3) - Same as before
