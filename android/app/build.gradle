@@ -25,6 +25,7 @@ if (flutterVersionName == null) {
 android {
     namespace "com.example.bac"
     compileSdkVersion flutter.compileSdkVersion
+<<<<<<< HEAD
     ndkVersion = "25.1.8937393"
 
     compileOptions {
@@ -34,6 +35,17 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17
+=======
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+>>>>>>> origin/main
     }
 
     sourceSets {

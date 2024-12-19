@@ -109,7 +109,11 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                       ),
                       _buildMenuItem(
                         context: context,
+<<<<<<< HEAD
                         onPressed: () => _selectAndNavigate(1, const annee5()),
+=======
+                        onPressed: () => _selectAndNavigate(1, const Annee5()),
+>>>>>>> origin/main
                         icon: Icons.book,
                         label: 'الاولى باكالوريا',
                         color: Colors.green,

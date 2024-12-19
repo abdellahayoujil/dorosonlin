@@ -1,5 +1,8 @@
 import 'package:arabic_font/arabic_font.dart';
+<<<<<<< HEAD
 import 'package:bac/page/PdfView.dart';
+=======
+>>>>>>> origin/main
 import 'package:bac/page/ThemeProvider.dart';
 import 'package:bac/page/annee4.dart';
 import 'package:bac/page/annee5.dart';
@@ -17,6 +20,7 @@ class bac extends StatefulWidget {
 class _bacState extends State<bac> with TickerProviderStateMixin {
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
+<<<<<<< HEAD
   List<bool> showPlus = List.generate(16, (_) => false); 
 
   final List<Color> cardColors = [
@@ -140,13 +144,46 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
       {'text': 'جهوي 8', 'screen': const PdfView(), 'icon': Icons.location_city},
       {'text': 'محلي 8', 'screen': const PdfView(), 'icon': Icons.home},
     ],
+=======
+  List<bool> showPlus = List.generate(10, (_) => false); 
+
+  // Define a list of colors complementing the background gradient
+  final List<Color> cardColors = [
+    const Color(0xFF1E88E5), // Dark blue
+    const Color(0xFF43A047), // Green
+    const Color(0xFFE53935), // Red
+    const Color(0xFFEF6C00), // Orange
+    const Color(0xFFAB47BC), // Purple
+    const Color(0xFF00ACC1), // Teal
+    const Color(0xFFF06292), // Pink
+    const Color(0xFFFFA726), // Amber
+    const Color(0xFF7CB342), // Light green
+    const Color(0xFF5C6BC0), // Indigo
+  ];
+
+  final List<String> _titles = [
+    "علوم فيزيائية",
+    "علوم الحياة والأرض",
+    "علوم زراعية",
+    "العلوم الرياضية أ",
+    "العلوم الرياضية ب",
+    "آداب وعلوم إنسانية",
+    "علوم التدبير المحاسباتي",
+    "العلوم الاقتصادية",
+    "شعبة اللغة العربية",
+    "شعبة العلوم الشرعية",
+>>>>>>> origin/main
   ];
 
   @override
   void initState() {
     super.initState();
     _controllers = List.generate(
+<<<<<<< HEAD
       16, 
+=======
+      10, 
+>>>>>>> origin/main
       (_) => AnimationController(
         duration: const Duration(milliseconds: 300),
         vsync: this,
@@ -174,14 +211,22 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
+<<<<<<< HEAD
           'الثانية باكالوريا',
+=======
+          'الثانية باكالوريا', 
+>>>>>>> origin/main
           style: ArabicTextStyle(
             arabicFont: ArabicFont.dinNextLTArabic,
             fontSize: 30,
             color: Colors.white,
           ),
         ),
+<<<<<<< HEAD
         centerTitle: true,
+=======
+                centerTitle: true,
+>>>>>>> origin/main
         elevation: 0,
         backgroundColor: themeProvider.isDarkMode
             ? Colors.grey[800]
@@ -205,7 +250,11 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
         child: AnimationLimiter(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
+<<<<<<< HEAD
             itemCount: 8,
+=======
+            itemCount: 10, 
+>>>>>>> origin/main
             itemBuilder: (context, index) {
               return AnimationConfiguration.staggeredList(
                 position: index,
@@ -214,9 +263,15 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
                   verticalOffset: 50.0,
                   child: FadeInAnimation(
                     child: _buildExpandableSection(
+<<<<<<< HEAD
                       title: _titles[index],
                       index: index,
                       color: cardColors[index],
+=======
+                      title: _titles[index], 
+                      index: index,
+                      color: cardColors[index], 
+>>>>>>> origin/main
                     ),
                   ),
                 ),
@@ -283,6 +338,7 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
               child: widget,
             ),
           ),
+<<<<<<< HEAD
           children: navigationButtons[index].map((button) {
             return Column(
               children: [ _buildNavigationButton(
@@ -293,6 +349,30 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
               ), const SizedBox(height: 8),]
             );
           }).toList(),
+=======
+          children: [
+            _buildNavigationButton(
+              text: 'وطني',
+              onTap: () => _navigateToScreen(context, const bac()),
+              color: cardColors[index], 
+              icon: Icons.public,
+            ),
+            const SizedBox(height: 8),
+            _buildNavigationButton(
+              text: 'جهوي',
+              onTap: () => _navigateToScreen(context, const Annee5()),
+              color: cardColors[index], 
+              icon: Icons.location_city,
+            ),
+            const SizedBox(height: 8),
+            _buildNavigationButton(
+              text: 'محلي',
+              onTap: () => _navigateToScreen(context, const annee4()),
+              color: cardColors[index], 
+              icon: Icons.home,
+            ),
+          ],
+>>>>>>> origin/main
         ),
       ),
     );
@@ -362,4 +442,8 @@ class _bacState extends State<bac> with TickerProviderStateMixin {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

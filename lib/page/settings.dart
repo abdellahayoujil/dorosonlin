@@ -3,7 +3,10 @@ import 'package:bac/page/ThemeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
 
@@ -21,7 +24,11 @@ class Settings extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+<<<<<<< HEAD
         centerTitle: true,
+=======
+               centerTitle: true,
+>>>>>>> origin/main
         elevation: 0,
         backgroundColor: themeProvider.isDarkMode
             ? Theme.of(context).primaryColor
@@ -44,6 +51,7 @@ class Settings extends StatelessWidget {
           ),
         ),
         child: AnimationLimiter(
+<<<<<<< HEAD
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -89,6 +97,57 @@ class Settings extends StatelessWidget {
                     ),
                   ],
                 ),
+=======
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: AnimationConfiguration.toStaggeredList(
+                duration: const Duration(milliseconds: 500),
+                childAnimationBuilder: (widget) => SlideAnimation(
+                  horizontalOffset: 50.0,
+                  child: FadeInAnimation(
+                    child: widget,
+                  ),
+                ),
+                children: [
+                  _buildSettingCard(
+                    context,
+                    icon: Icons.notifications,
+                    title: 'الإشعارات',
+                    onTap: () {
+                      // Handle notification settings navigation
+                    },
+                  ),
+                  _buildSettingCard(
+                    context,
+                    icon: Icons.color_lens,
+                    title: 'الوضع الليلي',
+                    trailing: Switch(
+                      value: themeProvider.isDarkMode,
+                      onChanged: (_) {
+                        themeProvider.toggleTheme();
+                      },
+                      activeColor: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  _buildSettingCard(
+                    context,
+                    icon: Icons.help,
+                    title: 'حول التطبيق',
+                    onTap: () {
+                      // Handle help & support navigation
+                    },
+                  ),
+                  _buildSettingCard(
+                    context,
+                    icon: Icons.star,
+                    title: 'تقييم التطبيق',
+                    onTap: () {
+                      // Handle app rating navigation
+                    },
+                  ),
+                ],
+>>>>>>> origin/main
               ),
             ),
           ),
@@ -123,4 +182,8 @@ class Settings extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
