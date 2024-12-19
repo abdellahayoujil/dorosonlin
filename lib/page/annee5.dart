@@ -1,4 +1,8 @@
 import 'package:arabic_font/arabic_font.dart';
+<<<<<<< HEAD
+import 'package:bac/page/PdfView.dart';
+=======
+>>>>>>> origin/main
 import 'package:bac/page/ThemeProvider.dart';
 import 'package:bac/page/annee4.dart';
 import 'package:bac/page/bac.dart';
@@ -6,6 +10,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
 
+<<<<<<< HEAD
+class annee5 extends StatefulWidget {
+  const annee5({Key? key}) : super(key: key);
+
+  @override
+  State<annee5> createState() => _Annee5State();
+}
+
+class _Annee5State extends State<annee5> with TickerProviderStateMixin {
+=======
 class Annee5 extends StatefulWidget {
   const Annee5({Key? key}) : super(key: key);
 
@@ -14,6 +28,7 @@ class Annee5 extends StatefulWidget {
 }
 
 class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
+>>>>>>> origin/main
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
   List<bool> showPlus = List.generate(8, (_) => false);
@@ -22,7 +37,11 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _controllers = List.generate(
+<<<<<<< HEAD
+      8,
+=======
       8, 
+>>>>>>> origin/main
       (_) => AnimationController(
         duration: const Duration(milliseconds: 300),
         vsync: this,
@@ -57,7 +76,11 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
             color: Colors.white,
           ),
         ),
+<<<<<<< HEAD
+        centerTitle: true,
+=======
                centerTitle: true,
+>>>>>>> origin/main
         elevation: 0,
         backgroundColor: themeProvider.isDarkMode
             ? Colors.grey[800]
@@ -81,7 +104,11 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
         child: AnimationLimiter(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
+<<<<<<< HEAD
+            itemCount: 8,
+=======
             itemCount: 8, 
+>>>>>>> origin/main
             itemBuilder: (context, index) {
               return AnimationConfiguration.staggeredList(
                 position: index,
@@ -90,9 +117,16 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
                   verticalOffset: 50.0,
                   child: FadeInAnimation(
                     child: _buildExpandableSection(
+<<<<<<< HEAD
+                      title: _titles[index],
+                      index: index,
+                      color: _colors[index],
+                      navigationButtons: _navigationButtons[index],
+=======
                       title: _titles[index], 
                       index: index,
                       color: _colors[index], 
+>>>>>>> origin/main
                     ),
                   ),
                 ),
@@ -126,7 +160,51 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
     Colors.amber,
   ];
 
+<<<<<<< HEAD
+  final List<List<Map<String, dynamic>>> _navigationButtons = [
+    [
+      {"text": "وطني رياضي", "screen": PdfView(), "color": Colors.blue, "icon": Icons.public},
+      {"text": "جهوي رياضي", "screen": annee4(), "color": Colors.green, "icon": Icons.school},
+    ],
+    [
+      {"text": "وطني علمي", "screen": bac(), "color": Colors.blue, "icon": Icons.public},
+      {"text": "جهوي علمي", "screen": annee5(), "color": Colors.green, "icon": Icons.science},
+    ],
+    [
+      {"text": "وطني كهربائي", "screen": bac(), "color": Colors.orange, "icon": Icons.public},
+      {"text": "جهوي كهربائي", "screen": annee4(), "color": Colors.green, "icon": Icons.electric_bolt},
+    ],
+    [
+      {"text": "وطني ميكانيكي", "screen": bac(), "color": Colors.red, "icon": Icons.public},
+      {"text": "جهوي ميكانيكي", "screen": annee5(), "color": Colors.orange, "icon": Icons.settings},
+    ],
+    [
+      {"text": "وطني آداب", "screen": bac(), "color": Colors.purple, "icon": Icons.public},
+      {"text": "جهوي آداب", "screen": annee4(), "color": Colors.teal, "icon": Icons.book},
+    ],
+    [
+      {"text": "وطني إنساني", "screen": bac(), "color": Colors.blueGrey, "icon": Icons.public},
+      {"text": "جهوي إنساني", "screen": annee5(), "color": Colors.amber, "icon": Icons.people},
+    ],
+    [
+      {"text": "وطني اقتصادي", "screen": bac(), "color": Colors.cyan, "icon": Icons.public},
+      {"text": "جهوي اقتصادي", "screen": annee4(), "color": Colors.green, "icon": Icons.business},
+    ],
+    [
+      {"text": "وطني فني", "screen": bac(), "color": Colors.pink, "icon": Icons.public},
+      {"text": "جهوي فني", "screen": bac(), "color": Colors.indigo, "icon": Icons.brush},
+    ],
+  ];
+
+  Widget _buildExpandableSection({
+    required String title,
+    required int index,
+    required Color color,
+    required List<Map<String, dynamic>> navigationButtons,
+  }) {
+=======
   Widget _buildExpandableSection({required String title, required int index, required Color color}) {
+>>>>>>> origin/main
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -161,7 +239,11 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
             ),
             AnimatedSize(
               duration: const Duration(milliseconds: 300),
+<<<<<<< HEAD
+              child: showPlus[index] ? _buildExpandedContent(navigationButtons) : const SizedBox(),
+=======
               child: showPlus[index] ? _buildExpandedContent(index) : const SizedBox(),
+>>>>>>> origin/main
             ),
           ],
         ),
@@ -169,6 +251,25 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
     );
   }
 
+<<<<<<< HEAD
+  Widget _buildExpandedContent(List<Map<String, dynamic>> navigationButtons) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: navigationButtons.map((button) {
+          return Column(
+            children: [
+              _buildNavigationButton(
+                text: button['text'],
+                onTap: () => _navigateToScreen(context, button['screen']),
+                color: button['color'],
+                icon: button['icon'],
+              ),
+              const SizedBox(height: 8),
+            ],
+          );
+        }).toList(),
+=======
   Widget _buildExpandedContent(int index) {
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -204,6 +305,7 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
             ),
           ],
         ),
+>>>>>>> origin/main
       ),
     );
   }
@@ -272,4 +374,8 @@ class _Annee5State extends State<Annee5> with TickerProviderStateMixin {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

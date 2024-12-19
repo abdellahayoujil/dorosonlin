@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
+<<<<<<< HEAD
+// Colors for my app
+=======
 // Colors for the app
+>>>>>>> origin/main
 const Color colorb = Color.fromARGB(255, 250, 81, 118);
 const Color colorr = Color.fromARGB(255, 80, 255, 123);
 const Color colorg = Color.fromARGB(255, 80, 248, 226);
@@ -41,6 +45,10 @@ class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
+<<<<<<< HEAD
+  // ignore: library_private_types_in_public_api
+=======
+>>>>>>> origin/main
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
@@ -112,7 +120,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             right: 20,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+<<<<<<< HEAD
+              textDirection: TextDirection.rtl, 
+=======
               textDirection: TextDirection.rtl, // Add this line
+>>>>>>> origin/main
               children: List.generate(
                 _pages.length,
                 (index) => Container(
@@ -180,20 +192,34 @@ class _SliderPageState extends State<SliderPage> with SingleTickerProviderStateM
 
     _animationController = AnimationController(
       vsync: this,
+<<<<<<< HEAD
+      duration: const Duration(milliseconds: 1700), 
+    );
+
+    _titleOffsetAnimation = Tween<Offset>(
+      begin: const Offset(-1.0, 1),
+      end: Offset.zero,         
+=======
       duration: const Duration(milliseconds: 1700), // Slower animation
     );
 
     _titleOffsetAnimation = Tween<Offset>(
       begin: const Offset(1, 0), // Start from the right
       end: Offset.zero,          // End at normal position
+>>>>>>> origin/main
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
 
     _descriptionOffsetAnimation = Tween<Offset>(
+<<<<<<< HEAD
+      begin: const Offset(-1.0, 1), 
+      end: Offset.zero,         
+=======
       begin: const Offset(1, 0), // Start from the right 
       end: Offset.zero,          // End at normal position
+>>>>>>> origin/main
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
@@ -268,7 +294,11 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
+<<<<<<< HEAD
+        const SizedBox(height: 30),
+=======
         const SizedBox(height: 30), // Add some space at the bottom
+>>>>>>> origin/main
       ],
     ),
   );
